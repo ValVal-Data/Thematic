@@ -34,7 +34,7 @@ def perf_plot(performance:pan.DataFrame,b1:pan.DataFrame,name:list,met2:np.array
     ax[0].legend(name)
     ax[0].set_xlabel("Time (Month)")
     ax[0].set_title("Performance over time")
-    ax[0].set_ylabel("Cumulative returns (%)")
+    ax[0].set_ylabel("Cumulative Return (%)")
     ax[0].set_xticks([])
 
     ax[1].set_xlabel("Month")
