@@ -10,3 +10,5 @@ Data/
 *.npz
 *.csv
 *.html
+*.db
+*.txt

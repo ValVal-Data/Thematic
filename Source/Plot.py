@@ -9,6 +9,67 @@ from Source.Utils import *
 from Source.PortfolioOptimization import *
 from matplotlib.lines import Line2D
 
+def perf_plot2(performance:pan.DataFrame,b1:pan.DataFrame,name:list,met2:np.array,da:pan.DataFrame)->None:
+    """
+    Plot Cumulative return with Benchmarks, Return vs risk and top-5 positions
+
+    Parameters:
+        performance (pan.DataFrame): Performance dataframe
+        b1 (pan.DataFrame): DataFrame with benchmark informations
+        name (list): list with the name of the fund and benchmarks
+        met2 (np.array): Metrics for the fund and benchmarks
+        da (pan.DataFrame): DataFrame with position informations
+        
+    Returns:
+        None, plot the figure directly
+    """
+    b1_cum=(1+b1).cumprod()
+    colors = plt.rcParams["axes.prop_cycle"].by_key()["color"][:4]
+    fig,ax=plt.subplots(1,2,figsize=(4,4))
+    plt.suptitle("Cardiometabolic Innovation: A Thematic View on Long-Term Value Creation")
+    ax[0].plot(performance["Cum Return net"]*100)
+    ax[0].plot(np.array(b1_cum["MSCI-World"]*100))
+    ax[0].plot(np.array(b1_cum["MSCI-ACWI"]*100))
+    ax[0].plot(np.array(b1_cum["SP500"]*100))
+    ax[0].axhline(y=100,color='black',linestyle="-")
+    ax[0].legend(name)
+    ax[0].set_xlabel("Time (Month)")
+    ax[0].set_title("Performance over time")
+    ax[0].set_ylabel("Cumulative Return (%)")
+    ax[0].set_xticks([])
+
+    ax[1].set_xlabel("Month")
+    ax[1].set_ylabel("Performance (%)")
+    ax[1].set_title("Performance over time")
+
+    for ide, elem in enumerate(met2):   
+        ax[1].scatter(elem[1],elem[0],s=10)
+        if name[ide]=="Thematic fund":
+            ax[1].text(elem[1]-0.1,elem[0]+0.4,name[ide],va="top",ha="right",color=colors[ide],size=8)
+        else:
+            ax[1].text(elem[1]+0.1,elem[0]+0.4,name[ide],va="top",ha="left",color=colors[ide],size=8)
+
+    ax[1].set_xlabel("Risk (Annualized Volatility (%))")
+    ax[1].set_ylabel("Annualized Return (%)")
+    ax[1].set_title("Risk vs Return")
+
+    """da2=da.copy(deep=True)
+    da2.sort_values(by="w0",ascending=False,inplace=True)
+    da2=da2["w0"]
+    other=da2.iloc[5:].sum()
+    da2=da2.head(5)
+    da2.loc["Other"]=other
+    wedges,texts,autotexts=ax[2].pie(da2*100,labels=da2.index,autopct='%d%%')
+    for t in autotexts:
+        t.set_color("white")
+    ax[2].set_title("Top 5-positions")"""
+
+    plt.subplots_adjust(wspace=0.4)
+    fig.text(0.5,0.01,"Understanding the biology is one thing. Understanding the value chain is another.",ha="center",fontsize=11)
+    plt.tight_layout(rect=[0,0.05,1,1])
+    plt.savefig("Figures/perf2.png",dpi=300,bbox_inches="tight")
+    plt.show()
+
 def perf_plot(performance:pan.DataFrame,b1:pan.DataFrame,name:list,met2:np.array,da:pan.DataFrame)->None:
     """
     Plot Cumulative return with Benchmarks, Return vs risk and top-5 positions

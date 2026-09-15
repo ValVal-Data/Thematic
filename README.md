@@ -9,7 +9,21 @@
 ## 1.1 Disclaimer
 This repository is provided solely for educational and illustrative purposes. It does not constitute investment advice, financial research, an offer, or a recommendation to buy or sell any financial instrument. Company names, securities, sectors and themes are used only to demonstrate a thematic investment research and portfolio-construction workflow.
 
-## 1.2 Overview
+## 1.2 Status
+
+This project is under active development
+
+A frontend/backend architecture is being implemented with interactive dashboard on top of the optimization engine
+
+### Roadmap
+- [x] Implemented sqlite database
+- [x] Thematic scoring interface
+![Universe distributions](Figures/Dashboard.png)
+- [ ] Portfolio Optimization interface
+- [ ] Stress testing interface
+- [ ] Automatic reporting interface
+
+## 1.3 Overview
 This repository contains a thematic equity portfolio-construction project focused on cardiometabolic innovation. The objective is to demonstrate how scientific domain expertise, financial analysis and quantitative portfolio optimisation can be combined in a reproducible investment research workflow.
 
 The project builds a 50-company investable universe across pharmaceuticals, biotechnology, medical devices, life-science tools and manufacturing enablers. Companies are scored using a proprietary thematic framework incorporating theme exposure, pipeline maturity, pipeline breadth, differentiation, technological novelty, validation, partnerships, revenue scale, growth and ecosystem role.
@@ -20,19 +34,20 @@ The strategy is evaluated through turnover, transaction-cost impact, exposure st
 
 This project is intended as an educational research case study and not as investment advice.
 
-## 1.3 Project Objective
+## 1.4 Project Objective
 The project was designed to support my transition from a PhD in biophysics to finance by applying scientific reasoning, quantitative modelling and Python development to a realistic investment-management problem.
 
 The central question is:
 > Can a structured thematic investment process identify and construct a diversified equity portfolio exposed to cardiometabolic innovation while maintaining explicit risk and diversification constraints?
 
 
-## 1.4 Table of Content
+## 1.5 Table of Content
 1. Executive summary
     1. Disclamer
-    2. Overview
-    3. Project Objective
-    4. Table of Content
+    2. Status
+    3. Overview
+    4. Project Objective
+    5. Table of Content
 2. Key features
 3. Data sources
 4. Methodology

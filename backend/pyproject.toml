@@ -1,0 +1,32 @@
+[project]
+name = "Backend thematic portfolio optimizer"
+versions = "0.0.1"
+description = "An engine that calculate thematic score and optimize portfolio"
+readme = "../README.md"
+requires-python = ">=3.14"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I"
+]
+
+[tool.ruff]
+line-length = 96
+
+[tool.mypy]
+strict = false
+ignore_missing_imports = true
+
+[tool.fastapi]
+entrypoint = "main:app"
