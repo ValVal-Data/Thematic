@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Setup Miniconda
-        run: c:\Miniconda\Scripts\conda.exe create --file frontend/conda-lock.yml --name volatility --quiet
+        run: c:\Miniconda\Scripts\conda.exe create --file backend/conda-lock.yml --name volatility --quiet
         shell: powershell
 
       - name: Run Ruff
