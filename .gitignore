@@ -13,3 +13,4 @@ Thematic.code-workspace
 **/.ruff_cache/
 **/.vscode/
 **/.streamlit/
+!backend/tests/fixtures/**
