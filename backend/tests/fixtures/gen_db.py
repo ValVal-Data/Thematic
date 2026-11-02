@@ -26,5 +26,12 @@ with closing(sq.connect("tests/fixtures/test.db")) as conn:
             Capital REAL
         )
     """)
-    conn.executemany('INSERT INTO thematic_score (Ticker,Score,"Pipeline Maturity","Pipeline Breadth","Pipeline Differentiation","Novelty of the technology",Validation,"Pipeline Strength","Breakthrough potential","Number of active partnerships",Thematic,Revenue,CAGR,"Ecosystem component") VALUES (?,?,1,1,1,1,1,1,1,1,1,1,1,1,"LON",)',(("A",1),("B",2),("C",3)))
+    conn.executemany(
+        'INSERT INTO thematic_score (Ticker,Score,"Pipeline Maturity"\
+            ,"Pipeline Breadth","Pipeline Differentiation","Novelty of\
+            the technology",Validation,"Pipeline Strength","Breakthrough\
+            potential","Number of active partnerships",Thematic,Revenue,CAGR,\
+            "Ecosystem component") VALUES (?,?,1,1,1,1,1,1,1,1,1,1,1,1,"LON",)',
+        (("A", 1), ("B", 2), ("C", 3)),
+    )
     conn.commit()

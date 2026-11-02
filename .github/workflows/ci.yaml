@@ -1,0 +1,26 @@
+name : CI
+
+on : [push]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Miniconda
+        run: c:\Miniconda\Scripts\conda.exe create --file frontend/conda-lock.yml --name volatility --quiet
+        shell: powershell
+
+      - name: Run Ruff
+        run: c:\Miniconda\Scripts\conda.exe run -n volatility ruff check
+        shell: powershell
+
+      - name: Run Mypy
+        run: c:\Miniconda\Scripts\conda.exe run -n volatility mypy --ignore-missing-imports --explicit-package-bases .
+        shell: powershell
+
+      - name: Run Test
+        run: c:\Miniconda\Scripts\conda.exe run -n volatility python -m unittest discover -s tests -p "test_*.py"
+        shell: powershell

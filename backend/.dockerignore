@@ -1,0 +1,13 @@
+**/*.docx
+**/*.npy
+**/__pycache__/
+**/*.tmp
+**/*.csv
+**/*.html
+**/*.db
+Thematic.code-workspace
+**/.mypy_cache/
+**/.ruff_cache/
+**/.vscode/
+**/.github/
+**/.streamlit/

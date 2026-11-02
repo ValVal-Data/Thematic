@@ -20,6 +20,7 @@ select = [
     # isort
     "I"
 ]
+ignore = ["SIM108"]
 
 [tool.ruff]
 line-length = 96
