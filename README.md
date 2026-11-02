@@ -1,5 +1,7 @@
 # Thematic Investment Portfolio Optimization Plateform
 
+[![CI](https://github.com/ValVal-Data/Thematic/actions/workflows/ci.yaml/badge.svg)](https://github.com/ValVal-Data/Thematic/actions/workflows/ci.yaml)
+
  
 **Date:** October 2026  
 **Purpose:** Educational investment research case study  
