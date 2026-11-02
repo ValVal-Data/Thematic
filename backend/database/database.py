@@ -3,8 +3,8 @@ import json as js
 import logging as lg
 import sqlite3 as sq
 from contextlib import closing
-from typing import Any, cast
 from pathlib import Path
+from typing import Any, cast
 
 import pandas as pan
 
@@ -143,9 +143,7 @@ def load_convert(pth: str) -> dict:
 
 
 def make_thematic() -> None:
-    data = pan.read_csv("data/Universe.txt", sep=",", engine="python").fillna(
-        "NA"
-    )  # Load data
+    data = pan.read_csv("data/Universe.txt", sep=",", engine="python").fillna("NA")  # Load data
     with open("config/exrate.json") as f:  # Convert all revenue to CHF
         rate = js.load(f)
     convert = load_convert("config/convert.json")
